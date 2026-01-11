@@ -1,0 +1,59 @@
+{
+    "name": "SharedContent",
+        "type": "object",
+            "properties": {
+        "type": {
+            "type": "string",
+                "enum": [
+                    "file",
+                    "folder",
+                    "text",
+                    "paste"
+                ],
+                    "description": "Type of shared content"
+        },
+        "title": {
+            "type": "string",
+                "description": "Title or name of the shared content"
+        },
+        "content": {
+            "type": "string",
+                "description": "Text content or file URL"
+        },
+        "files": {
+            "type": "array",
+                "items": {
+                "type": "object",
+                    "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "size": {
+                        "type": "number"
+                    }
+                }
+            },
+            "description": "Array of files for folder type"
+        },
+        "share_id": {
+            "type": "string",
+                "description": "Unique share identifier"
+        },
+        "expires_at": {
+            "type": "string",
+                "format": "date-time",
+                    "description": "Expiration date"
+        },
+        "download_count": {
+            "type": "number",
+                "default": 0
+        }
+    },
+    "required": [
+        "type",
+        "share_id"
+    ]
+}
